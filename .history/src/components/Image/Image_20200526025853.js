@@ -13,7 +13,7 @@ const Image = props => {
     const checkVisibility = () => {
         if (isVisible) return;
 
-        const { innerHeight, innerWidth } = window;
+        const { innerHeight } = window;
         const {
             top,
             left,
@@ -24,7 +24,7 @@ const Image = props => {
         if (
             top <= innerHeight &&
             bottom >= 0 &&
-            left <= innerWidth &&
+            left <= innerHeight &&
             right >= 0
         ) {
             setIsVisible(true);

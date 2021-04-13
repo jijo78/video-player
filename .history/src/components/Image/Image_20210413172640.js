@@ -8,12 +8,13 @@ const Image = props => {
     const imageElementRef = useRef(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    console.log('isVisible: ', isVisible);
     const url = `${IMAGE_PATH}${props.id}.jpg`;
 
     const checkVisibility = () => {
         if (isVisible) return;
 
-        const { innerHeight, innerWidth } = window;
+        const { innerHeight } = window;
         const {
             top,
             left,
@@ -24,7 +25,7 @@ const Image = props => {
         if (
             top <= innerHeight &&
             bottom >= 0 &&
-            left <= innerWidth &&
+            left <= innerHeight &&
             right >= 0
         ) {
             setIsVisible(true);

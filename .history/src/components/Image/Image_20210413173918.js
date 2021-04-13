@@ -13,7 +13,7 @@ const Image = props => {
     const checkVisibility = () => {
         if (isVisible) return;
 
-        const { innerHeight, innerWidth } = window;
+        const { innerHeight,innerWidth } = window;
         const {
             top,
             left,
