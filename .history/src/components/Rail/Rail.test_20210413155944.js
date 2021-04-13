@@ -44,5 +44,6 @@ describe('<Rail />', function() {
                 1
             );
         });
+
     });
 });

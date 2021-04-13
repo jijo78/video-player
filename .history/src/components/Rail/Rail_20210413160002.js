@@ -103,7 +103,6 @@ function Rail({ id, title, tiles, activeTileId }) {
             />
             <button
                 className={styles.railButtonRight}
-                data-test="button-right"
                 onClick={handleButtonRightClick}
             />
         </div>
