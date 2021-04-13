@@ -23,14 +23,4 @@ const mockData = [
 ];
 describe('<Rail />', function() {
     const component = mount(<Rail tiles={mockData} />);
-    describe('<Rail /> component', () => {
-        it('should render Rail', () => {
-            expect(component.length).to.equal(1);
-        });
-        it('should render Tiles', () => {
-            expect(component.find('[data-test="tile-list"]').length).to.equal(
-                3
-            );
-        });
-    });
 });
