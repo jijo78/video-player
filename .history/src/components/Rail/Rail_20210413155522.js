@@ -98,6 +98,7 @@ function Rail({ id, title, tiles, activeTileId }) {
             </div>
             <button
                 className={styles.railButtonLeft}
+                
                 onClick={handleButtonLeftClick}
             />
             <button
