@@ -21,7 +21,10 @@ const Video = props => {
             <figcaption>
                 <time data-test="elapsed-time"></time>
                 <div>
-                    <input min="0" type="range" />
+                    <input
+                        min="0"
+                        type="range"
+                    />
                     <progress />
                 </div>
                 <time data-test="duration-time"></time>
