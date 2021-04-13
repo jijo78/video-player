@@ -13,7 +13,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const config = require('../config/webpack/webpack.config');
 
-const PORT = 3006;
+const PORT = 3000;
 const IP = '0.0.0.0';
 const ROOT = path.resolve(__dirname, '..');
 const ASSETS_PATH = path.join(ROOT, 'assets');
