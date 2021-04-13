@@ -13,16 +13,13 @@ function Rail({ id, title, tiles, activeTileId }) {
     );
     const {
         prevIndex,
-
         nextIndex,
-
         trackX,
         tileCount,
         isAtLeftEdge,
         isAtRightEdge
     } = state;
-    console.log('prevIndex: ', prevIndex);
-    console.log('nextIndex: ', nextIndex);
+
     const proxySetState = nextState =>
         setState(createNextRailState(state, nextState));
     const setMovedListener = listener => {

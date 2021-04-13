@@ -13,9 +13,9 @@ function Rail({ id, title, tiles, activeTileId }) {
     );
     const {
         prevIndex,
-
+        
         nextIndex,
-
+        
         trackX,
         tileCount,
         isAtLeftEdge,
