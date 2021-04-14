@@ -7,7 +7,7 @@ import styles from './video.css';
 
 const Video = props => {
     const currentTime = Math.ceil(props.timeElapsed);
-    const duration = Math.ceil((props.duration && props.duration) || 0);
+    const duration = Math.ceil(props.duration);
     const {
         hours: durationHours,
         minutes: durationMinutes,
@@ -37,7 +37,7 @@ const Video = props => {
                     />
                     <progress max={duration} value={currentTime} />
                 </div>
-                <time data-test="duration-time">{`${durationHours}:${durationMinutes}:${durationSeconds}`}</time>
+                <time data-test="duration-time"></time>
             </figcaption>
         </figure>
     );

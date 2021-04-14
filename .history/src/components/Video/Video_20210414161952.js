@@ -7,7 +7,7 @@ import styles from './video.css';
 
 const Video = props => {
     const currentTime = Math.ceil(props.timeElapsed);
-    const duration = Math.ceil((props.duration && props.duration) || 0);
+    const duration = Math.ceil(props.duration);
     const {
         hours: durationHours,
         minutes: durationMinutes,
@@ -27,7 +27,7 @@ const Video = props => {
                 onMouseLeave={props.onMouseLeave}
             />
             <figcaption>
-                <time data-test="elapsed-time"></time>
+                <time data-test="elapsed-time">{`${durationHours}:${durationMinutes}:${durationSeconds}`}</time>
                 <div>
                     <input
                         value={currentTime}
