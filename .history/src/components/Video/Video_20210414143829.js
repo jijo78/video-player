@@ -24,13 +24,10 @@ const Video = props => {
             <figcaption>
                 <time data-test="elapsed-time"></time>
                 <div>
-                    <input
-                        value={currentTime}
-                        min="0"
-                        max={duration}
-                        type="range"
-                    />
-                    <progress max={duration} value={currentTime} />
+                    <input                         value={currentTime}
+ min="0"                         max={duration}
+ type="range" />
+                    <progress />
                 </div>
                 <time data-test="duration-time"></time>
             </figcaption>

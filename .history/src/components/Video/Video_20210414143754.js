@@ -4,9 +4,8 @@ import { VIDEO_PATH } from '../../shared/constants/assetPaths';
 
 import styles from './video.css';
 
-const Video = props => {
-    const currentTime = Math.ceil(props.timeElapsed);
-    const duration = Math.ceil(props.duration);
+const Video = props => {    const currentTime = Math.ceil(props.timeElapsed);
+    const duration = Math.ceil((props.duration && props.duration) || 0);
 
     const url = `${VIDEO_PATH}dazn.mp4`;
 
@@ -24,13 +23,8 @@ const Video = props => {
             <figcaption>
                 <time data-test="elapsed-time"></time>
                 <div>
-                    <input
-                        value={currentTime}
-                        min="0"
-                        max={duration}
-                        type="range"
-                    />
-                    <progress max={duration} value={currentTime} />
+                    <input min="0" type="range" />
+                    <progress />
                 </div>
                 <time data-test="duration-time"></time>
             </figcaption>

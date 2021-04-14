@@ -10,10 +10,7 @@ const Player = () => {
     const videoElementRef = useRef(null);
     const [status, setStatus] = useState(VideoStatus.PAUSED);
     const [isHover, setIsHover] = useState(false);
-    const duration =
-        videoElementRef.current && videoElementRef.current.duration;
-    const timeElapsed =
-        videoElementRef.current && videoElementRef.current.currentTime;
+
     const handlePlayPauseClick = () => {
         switch (status) {
             case VideoStatus.PAUSED:
@@ -56,8 +53,6 @@ const Player = () => {
         <div className={styles.player}>
             <Video
                 setRef={videoElementRef}
-                timeElapsed={timeElapsed}
-                duration={duration}
                 onKeyPress={handleVideoKeyPress}
                 onMouseOver={handleVideoMouseOver}
                 onMouseLeave={handleVideoMouseLeave}

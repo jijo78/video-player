@@ -30,7 +30,7 @@ const Video = props => {
                         max={duration}
                         type="range"
                     />
-                    <progress max={duration} value={currentTime} />
+                    <progress  max={duration} value={currentTime}/>
                 </div>
                 <time data-test="duration-time"></time>
             </figcaption>
