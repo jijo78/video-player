@@ -29,6 +29,7 @@ const Video = props => {
             <figcaption>
                 <time data-test="elapsed-time"></time>
                 <div className={styles.videoWrapper}>
+                    
                     <input
                         value={currentTime}
                         min="0"
