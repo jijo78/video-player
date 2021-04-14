@@ -19,7 +19,7 @@ figcaption {
     bottom: -1px;
     width: 100%;
     display: flex;
-    padding: 0.3rem;
+    padding: .3rem;
 }
 time {
     padding: 0 0.5rem;
