@@ -10,7 +10,7 @@ const Video = props => {
     const { hours, minutes, seconds } = formatTime(currentTime);
 
     const duration = Math.ceil((props.duration && props.duration) || 0);
-
+    
     const {
         hours: durationHours,
         minutes: durationMinutes,
@@ -24,7 +24,7 @@ const Video = props => {
         const player = props.setRef.current;
         player.currentTime = skipTo;
     };
-
+    
     return (
         <figure>
             <video
@@ -45,6 +45,7 @@ const Video = props => {
                         max={duration}
                         type="range"
                         onChange={e => seek(e)}
+
                     />
                     <progress max={duration} value={currentTime} />
                 </div>
