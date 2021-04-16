@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import PlayPause from '../PlayPause/PlayPause';
 import Video from '../Video/Video';
@@ -14,20 +14,11 @@ const Player = () => {
     const [isHover, setIsHover] = useState(false);
     const duration =
         videoElementRef.current && videoElementRef.current.duration;
-
-    const isPlaying = status === VideoStatus.PLAYING;
-    const isUiHidden = !isHover && isPlaying;
-
-    useEffect(() => {
-        let videoTimer = setInterval(() => {
-            setTimeElapsed(
-                videoElementRef.current && videoElementRef.current.currentTime
-            );
-        }, 1000);
-
-        return () => clearInterval(videoTimer);
-    }, []);
-
+    const timeElapsed =
+        videoElementRef.current && videoElementRef.current.currentTime;
+        const isPlaying = status === VideoStatus.PLAYING;
+        const isUiHidden = !isHover && isPlaying;
+        
     const handlePlayPauseClick = () => {
         switch (status) {
             case VideoStatus.PAUSED:
@@ -62,6 +53,8 @@ const Player = () => {
     const handleVideoMouseLeave = () => {
         setIsHover(false);
     };
+
+
 
     return (
         <div className={styles.player}>

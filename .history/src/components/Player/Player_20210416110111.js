@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import PlayPause from '../PlayPause/PlayPause';
 import Video from '../Video/Video';
@@ -14,7 +14,8 @@ const Player = () => {
     const [isHover, setIsHover] = useState(false);
     const duration =
         videoElementRef.current && videoElementRef.current.duration;
-
+    const timeElapsed =
+        videoElementRef.current && videoElementRef.current.currentTime;
     const isPlaying = status === VideoStatus.PLAYING;
     const isUiHidden = !isHover && isPlaying;
 
@@ -23,11 +24,11 @@ const Player = () => {
             setTimeElapsed(
                 videoElementRef.current && videoElementRef.current.currentTime
             );
-        }, 1000);
+        }, 100);
 
         return () => clearInterval(videoTimer);
     }, []);
-
+    
     const handlePlayPauseClick = () => {
         switch (status) {
             case VideoStatus.PAUSED:

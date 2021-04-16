@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import PlayPause from '../PlayPause/PlayPause';
 import Video from '../Video/Video';
@@ -23,7 +23,7 @@ const Player = () => {
             setTimeElapsed(
                 videoElementRef.current && videoElementRef.current.currentTime
             );
-        }, 1000);
+        }, 100);
 
         return () => clearInterval(videoTimer);
     }, []);
