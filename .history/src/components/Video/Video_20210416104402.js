@@ -29,7 +29,7 @@ const Video = props => {
                 onMouseLeave={props.onMouseLeave}
             />
             <figcaption>
-                <time data-test="elapsed-time">{`${hours}:${minutes}:${seconds}`}</time>
+                <time data-test="elapsed-time"></time>
                 <div className={styles.videoWrapper}>
                     <input
                         value={currentTime}
