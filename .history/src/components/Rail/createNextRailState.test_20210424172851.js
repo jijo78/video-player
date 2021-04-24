@@ -37,7 +37,7 @@ describe('createNextRailState', () => {
             assert.isTrue(railState.isAtRightEdge);
         });
 
-        it('should return false if trackX is greater than totalWidth', () => {
+        it('should return true if trackX is greater than totalWidth', () => {
             stub(railState, 'trackX').value(1);
             stub(railState, 'minTrackX').value(0);
 
