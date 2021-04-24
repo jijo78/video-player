@@ -22,26 +22,28 @@ describe('createNextRailState', () => {
     });
 
     describe('right edge functionality', () => {
-        const railState = createNextRailState({});
         it('should return true if trackX is less than totalWidth', () => {
-            stub(railState, 'trackX').value(0);
-            stub(railState, 'minTrackX').value(1);
+            const state = createNextRailState({});
+            stub(state, 'trackX').value(0);
+            stub(state, 'minTrackX').value(1);
 
-            assert.isTrue(railState.isAtRightEdge);
+            assert.isTrue(state.isAtRightEdge);
         });
 
         it('should return true if trackX equals totalWidth', () => {
-            stub(railState, 'trackX').value(0);
-            stub(railState, 'minTrackX').value(0);
+            const state = createNextRailState({});
+            stub(state, 'trackX').value(0);
+            stub(state, 'minTrackX').value(0);
 
-            assert.isTrue(railState.isAtRightEdge);
+            assert.isTrue(state.isAtRightEdge);
         });
 
         it('should return true if trackX is greater than totalWidth', () => {
-            stub(railState, 'trackX').value(1);
-            stub(railState, 'minTrackX').value(0);
+            const state = createNextRailState({});
+            stub(state, 'trackX').value(1);
+            stub(state, 'minTrackX').value(0);
 
-            assert.isFalse(railState.isAtRightEdge);
+            assert.isFalse(state.isAtRightEdge);
         });
     });
-});
+    });

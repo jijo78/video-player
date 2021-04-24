@@ -22,8 +22,8 @@ describe('createNextRailState', () => {
     });
 
     describe('right edge functionality', () => {
-        const railState = createNextRailState({});
         it('should return true if trackX is less than totalWidth', () => {
+            const railState = createNextRailState({});
             stub(railState, 'trackX').value(0);
             stub(railState, 'minTrackX').value(1);
 
@@ -31,6 +31,7 @@ describe('createNextRailState', () => {
         });
 
         it('should return true if trackX equals totalWidth', () => {
+            const railState = createNextRailState({});
             stub(railState, 'trackX').value(0);
             stub(railState, 'minTrackX').value(0);
 
@@ -38,6 +39,7 @@ describe('createNextRailState', () => {
         });
 
         it('should return true if trackX is greater than totalWidth', () => {
+            const state = createNextRailState({});
             stub(railState, 'trackX').value(1);
             stub(railState, 'minTrackX').value(0);
 
