@@ -45,15 +45,17 @@ describe('createNextRailState', () => {
         });
     });
     describe('nextIndex', () => {
-        it('should return 4 tiles on next index', () => {
+        it('should return correct next index', () => {
             const onScreen = 4;
             const railState = createNextRailState({
                 index: 0,
-                viewportWidth: tileWidths[0] * onScreen,
+                viewportWidth: 200 * onScreen,
                 tileWidths
             });
 
             assert.equal(railState.nextIndex, onScreen - 1);
         });
     });
+
+  
 });

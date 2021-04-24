@@ -45,7 +45,7 @@ describe('createNextRailState', () => {
         });
     });
     describe('nextIndex', () => {
-        it('should return 4 tiles on next index', () => {
+        it('should return the right next index', () => {
             const onScreen = 4;
             const railState = createNextRailState({
                 index: 0,
@@ -53,7 +53,7 @@ describe('createNextRailState', () => {
                 tileWidths
             });
 
-            assert.equal(railState.nextIndex, onScreen - 1);
+            assert.equal(railState.nextIndex, onScreen );
         });
     });
 });

@@ -56,4 +56,17 @@ describe('createNextRailState', () => {
             assert.equal(railState.nextIndex, onScreen - 1);
         });
     });
+
+    describe('prevIndex', () => {
+        it('should return correct prev index', () => {
+            const offScreen = 2;
+            const state = createNextRailState({
+                index: tileWidths.length - 1,
+                viewportWidth: tileWidths[0] * (tileWidths.length - offScreen),
+                tileWidths
+            });
+
+            assert.equal(state.prevIndex, offScreen - 1);
+        });
+    });
 });

@@ -56,4 +56,17 @@ describe('createNextRailState', () => {
             assert.equal(railState.nextIndex, onScreen - 1);
         });
     });
+
+    describe('prevIndex', () => {
+        it('should return remaining tiles', () => {
+            const offScreen = 2;
+            const railState = createNextRailState({
+                index: tileWidths.length - 1,
+                viewportWidth: tileWidths[0] * (tileWidths.length - offScreen),
+                tileWidths
+            });
+
+            assert.equal(railState.prevIndex, offScreen);
+        });
+    });
 });

@@ -45,15 +45,28 @@ describe('createNextRailState', () => {
         });
     });
     describe('nextIndex', () => {
-        it('should return 4 tiles on next index', () => {
+        it('should return correct next index', () => {
             const onScreen = 4;
-            const railState = createNextRailState({
+            const state = createNextRailState({
                 index: 0,
-                viewportWidth: tileWidths[0] * onScreen,
+                viewportWidth: 200 * onScreen,
                 tileWidths
             });
-
-            assert.equal(railState.nextIndex, onScreen - 1);
+    
+            assert.equal(state.nextIndex, onScreen - 1);
+        });
+    });
+    
+    describe('prevIndex', () => {
+        it('should return correct prev index', () => {
+            const offScreenLength = 2;
+            const state = createNextRailState({
+                index: tileWidths.length - 1,
+                viewportWidth: 200 * (tileWidths.length - offScreenLength),
+                tileWidths
+            });
+    
+            assert.equal(state.prevIndex, offScreenLength);
         });
     });
 });
