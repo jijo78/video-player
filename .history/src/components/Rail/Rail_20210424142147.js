@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import createNextRailState from './createNextRailState';
 import Tile from '../Tile/Tile';
 import styles from './rail.css';
-import RailsButtons from './RailsButtons';
+
 function Rail({ id, title, tiles, activeTileId }) {
     const movedListeners = useRef([]);
     const trackElementRef = useRef(null);
@@ -73,6 +73,7 @@ function Rail({ id, title, tiles, activeTileId }) {
         return () =>
             window.removeEventListener('resize', () => updateDimensions());
     }, []);
+    console.log('tileWidths: ', trackX);
 
     return (
         <div className={railClassName} data-test="rail-wrapper">
@@ -94,14 +95,14 @@ function Rail({ id, title, tiles, activeTileId }) {
                     />
                 ))}
             </div>
-            <RailsButtons
+            <button
                 className={styles.railButtonLeft}
-                testId="button-left"
+                data-test="button-left"
                 onClick={handleButtonLeftClick}
             />
-            <RailsButtons
+            <button
                 className={styles.railButtonRight}
-                testId="button-right"
+                data-test="button-right"
                 onClick={handleButtonRightClick}
             />
         </div>

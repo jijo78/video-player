@@ -73,6 +73,7 @@ function Rail({ id, title, tiles, activeTileId }) {
         return () =>
             window.removeEventListener('resize', () => updateDimensions());
     }, []);
+    console.log('tileWidths: ', trackX);
 
     return (
         <div className={railClassName} data-test="rail-wrapper">

@@ -4,8 +4,6 @@ import sinon from 'sinon';
 import { mount } from 'enzyme';
 
 import Rail from './Rail';
-import RailsButtons from './RailsButtons';
-
 const mockData = [
     {
         id: '3b47f17864b34a2687aabb0f25ea3e3e',
@@ -25,17 +23,6 @@ const mockData = [
 ];
 describe('<Rail />', function() {
     const component = mount(<Rail tiles={mockData} />);
-    beforeEach(() => {
-        global.window = global;
-        window.addEventListener = () => {};
-        window.resize = callback => {
-            callback();
-        };
-        8;
-    });
-    afterEach(() => {
-        window.removeEventListener = () => {};
-    });
     describe('<Rail /> component', () => {
         it('should render Rail', () => {
             expect(component.length).to.equal(1);
@@ -57,14 +44,14 @@ describe('<Rail />', function() {
                 1
             );
         });
-
-        it('should call onClick event on buttons', async () => {
-            const onClick = sinon.stub();
-            const wrapper = mount(
-                <RailsButtons onClick={onClick} testId="button-right" />
-            );
-
-            wrapper.props().onClick();
+        it('becomes visible after being clicked on', async () => {
+            console.log(component.find('.railTrack').props().style);
+            component
+                .find('[data-test="button-right"]')
+                .props()
+                .onClick();
+            component.update();
+            console.log(component.find('.railTrack').props().style);
 
             expect(onClick.callCount).to.be.equal(1);
         });

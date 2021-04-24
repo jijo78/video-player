@@ -73,6 +73,7 @@ function Rail({ id, title, tiles, activeTileId }) {
         return () =>
             window.removeEventListener('resize', () => updateDimensions());
     }, []);
+    console.log('tileWidths: ', handleButtonLeftClick);
 
     return (
         <div className={railClassName} data-test="rail-wrapper">
@@ -96,12 +97,12 @@ function Rail({ id, title, tiles, activeTileId }) {
             </div>
             <RailsButtons
                 className={styles.railButtonLeft}
-                testId="button-left"
+                data-test="button-left"
                 onClick={handleButtonLeftClick}
             />
             <RailsButtons
                 className={styles.railButtonRight}
-                testId="button-right"
+                data-test="button-right"
                 onClick={handleButtonRightClick}
             />
         </div>

@@ -63,9 +63,14 @@ describe('<Rail />', function() {
             const wrapper = mount(
                 <RailsButtons onClick={onClick} testId="button-right" />
             );
+            console.log(wrapper.debug());
 
-            wrapper.props().onClick();
-
+            component
+                .find('[testId="button-right"]')
+                .props()
+                .onClick();
+            component.update();
+            console.log(component.debug());
             expect(onClick.callCount).to.be.equal(1);
         });
     });

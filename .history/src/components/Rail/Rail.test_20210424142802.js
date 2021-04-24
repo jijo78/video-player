@@ -57,14 +57,12 @@ describe('<Rail />', function() {
                 1
             );
         });
-
-        it('should call onClick event on buttons', async () => {
-            const onClick = sinon.stub();
-            const wrapper = mount(
-                <RailsButtons onClick={onClick} testId="button-right" />
-            );
-
-            wrapper.props().onClick();
+        it('becomes visible after being clicked on', async () => {
+            component
+                .find('[data-test="button-right"]')
+                .props()
+                .onClick();
+            component.update();
 
             expect(onClick.callCount).to.be.equal(1);
         });

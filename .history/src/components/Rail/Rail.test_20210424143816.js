@@ -64,7 +64,9 @@ describe('<Rail />', function() {
                 <RailsButtons onClick={onClick} testId="button-right" />
             );
 
-            wrapper.props().onClick();
+            wrapper
+                .props()
+                .onClick();
 
             expect(onClick.callCount).to.be.equal(1);
         });
