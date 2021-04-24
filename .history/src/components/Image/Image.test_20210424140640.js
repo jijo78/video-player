@@ -12,6 +12,7 @@ describe('<Image />', function() {
         window.requestAnimationFrame = callback => {
             callback();
         };
+        8;
     });
     afterEach(() => {
         window.removeEventListener = () => {};

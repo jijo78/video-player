@@ -8,11 +8,19 @@ import Video from './Video';
 describe('<Video />', function() {
     const defaultProps = {
         timeElapsed: '0',
-        duration: '104'
+        duration: '104',
+        setRef: sinon.stub(React, 'useRef'),
+        onChange: sinon.stub()
     };
     const component = mount(<Video {...defaultProps} />);
 
     describe('<Video /> component', () => {
+        beforeEach(() => {
+            window.HTMLMediaElement.prototype.currentTime = () => {};
+        });
+        afterEach(() => {
+            window.removeEventListener = () => {};
+        });
         it('should render Video', () => {
             expect(component.length).to.equal(1);
         });
@@ -26,6 +34,24 @@ describe('<Video />', function() {
 
             expect(duration.length).to.equal(1);
             expect(duration.text()).to.be.eql('00:01:44');
+        });
+
+        it('should call setMovedListener function for visible images', () => {
+            console.log(component.find('[type="range"]').props().value);
+            const event = {
+                target: { value: 'the-value' },
+                currentTime: ''
+            };
+            const pauseStub = jest
+                .spyOn(window.HTMLMediaElement.prototype, 'pause')
+                .mockImplementation(() => {});
+
+            component.find('[type="range"]').simulate('change', event);
+            component.update();
+            console.log(component.debug());
+            expect(component.find('[type="range"]').props().value).to.be.equal(
+                1
+            );
         });
     });
 });

@@ -8,7 +8,9 @@ import Video from './Video';
 describe('<Video />', function() {
     const defaultProps = {
         timeElapsed: '0',
-        duration: '104'
+        duration: '104',
+        setRef: sinon.stub(React, 'useRef'),
+        onChange: sinon.stub()
     };
     const component = mount(<Video {...defaultProps} />);
 
@@ -27,5 +29,6 @@ describe('<Video />', function() {
             expect(duration.length).to.equal(1);
             expect(duration.text()).to.be.eql('00:01:44');
         });
+
     });
 });

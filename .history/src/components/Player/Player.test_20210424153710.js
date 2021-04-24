@@ -3,14 +3,14 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import Video from './Video';
+import Player from './Player';
 
-describe('<Video />', function() {
+describe('<Player />', function() {
     const defaultProps = {
         timeElapsed: '0',
         duration: '104'
     };
-    const component = mount(<Video {...defaultProps} />);
+    const component = mount(<Player {...defaultProps} />);
 
     describe('<Video /> component', () => {
         it('should render Video', () => {

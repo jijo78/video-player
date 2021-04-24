@@ -16,6 +16,7 @@ const Player = () => {
         videoElementRef.current && videoElementRef.current.duration;
 
     const isPlaying = status === VideoStatus.PLAYING;
+    console.log('isPlaying: ', isPlaying);
     const isUiHidden = !isHover && isPlaying;
 
     useEffect(() => {

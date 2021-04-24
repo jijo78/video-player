@@ -17,6 +17,7 @@ const Player = () => {
 
     const isPlaying = status === VideoStatus.PLAYING;
     const isUiHidden = !isHover && isPlaying;
+    console.log('isUiHidden: ', isUiHidden);
 
     useEffect(() => {
         let videoTimer = setInterval(() => {

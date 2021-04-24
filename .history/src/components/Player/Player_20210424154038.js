@@ -24,6 +24,7 @@ const Player = () => {
                 videoElementRef.current && videoElementRef.current.currentTime
             );
         }, 500);
+
         return () => clearInterval(videoTimer);
     }, []);
 

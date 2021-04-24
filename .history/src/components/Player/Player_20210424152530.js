@@ -8,6 +8,7 @@ import styles from './player.css';
 
 const Player = () => {
     const videoElementRef = useRef(null);
+    console.log('videoElementRef: ', videoElementRef);
     const [timeElapsed, setTimeElapsed] = useState(0);
 
     const [status, setStatus] = useState(VideoStatus.PAUSED);
@@ -24,6 +25,7 @@ const Player = () => {
                 videoElementRef.current && videoElementRef.current.currentTime
             );
         }, 500);
+
         return () => clearInterval(videoTimer);
     }, []);
 

@@ -7,11 +7,11 @@ import styles from './video.css';
 
 const Video = props => {
     const currentTime = Math.ceil(props.timeElapsed);
-
+    
     const { hours, minutes, seconds } = formatTime(currentTime);
 
     const duration = Math.ceil((props.duration && props.duration) || 0);
-
+    console.log('currentTime: ', currentTime);
     const {
         hours: durationHours,
         minutes: durationMinutes,

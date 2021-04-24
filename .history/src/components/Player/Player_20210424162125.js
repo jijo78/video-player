@@ -26,6 +26,7 @@ const Player = () => {
         }, 500);
         return () => clearInterval(videoTimer);
     }, []);
+    console.log('videoTimer: ', videoElementRef.current &&   videoElementRef.current.currentTime);
 
     const handlePlayPauseClick = () => {
         switch (status) {

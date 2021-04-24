@@ -27,6 +27,7 @@ const Player = () => {
         return () => clearInterval(videoTimer);
     }, []);
 
+
     const handlePlayPauseClick = () => {
         switch (status) {
             case VideoStatus.PAUSED:

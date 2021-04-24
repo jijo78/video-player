@@ -20,10 +20,12 @@ const Player = () => {
 
     useEffect(() => {
         let videoTimer = setInterval(() => {
+            
             setTimeElapsed(
                 videoElementRef.current && videoElementRef.current.currentTime
             );
         }, 500);
+        console.log('videoTimer: ', videoTimer);
         return () => clearInterval(videoTimer);
     }, []);
 

@@ -6,9 +6,17 @@ import sinon from 'sinon';
 import Video from './Video';
 
 describe('<Video />', function() {
+    beforeEach(() => {
+        sinon.spy(window.HTMLVideoElement.prototype.call, 'currentTime');
+    });
+
     const defaultProps = {
         timeElapsed: '0',
-        duration: '104'
+        duration: '104',
+        setRef: sinon
+            .spy(React, 'useRef')
+            .mockReturnValueOnce({ current: null }),
+        onChange: sinon.stub()
     };
     const component = mount(<Video {...defaultProps} />);
 
@@ -26,6 +34,20 @@ describe('<Video />', function() {
 
             expect(duration.length).to.equal(1);
             expect(duration.text()).to.be.eql('00:01:44');
+        });
+
+        it('should call onChange on range input', () => {
+            console.log(component.find('[type="range"]').props().value);
+            const event = {
+                target: { value: '200' }
+            };
+
+            component.find('[type="range"]').simulate('change', event);
+            component.update();
+            console.log(component.debug());
+            expect(component.find('[type="range"]').props().value).to.be.equal(
+                1
+            );
         });
     });
 });

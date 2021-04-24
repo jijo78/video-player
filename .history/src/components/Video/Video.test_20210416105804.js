@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
 
 import Video from './Video';
 
@@ -10,7 +9,7 @@ describe('<Video />', function() {
         timeElapsed: '0',
         duration: '104'
     };
-    const component = mount(<Video {...defaultProps} />);
+    const component = shallow(<Video {...defaultProps} />);
 
     describe('<Video /> component', () => {
         it('should render Video', () => {

@@ -8,7 +8,9 @@ import Video from './Video';
 describe('<Video />', function() {
     const defaultProps = {
         timeElapsed: '0',
-        duration: '104'
+        duration: '104',
+        setRef: sinon.stub(React, 'useRef'),
+        onChange: sinon.stub()
     };
     const component = mount(<Video {...defaultProps} />);
 
@@ -26,6 +28,21 @@ describe('<Video />', function() {
 
             expect(duration.length).to.equal(1);
             expect(duration.text()).to.be.eql('00:01:44');
+        });
+
+        it('should call setMovedListener function for visible images', () => {
+            console.log(component.find('[type="range"]').props().value);
+            const event = {
+                target: { value: 'the-value' },
+                currentTime:''
+            };
+
+            component.find('[type="range"]').simulate('change', event);
+            component.update();
+            console.log(component.debug());
+            expect(component.find('[type="range"]').props().value).to.be.equal(
+                1
+            );
         });
     });
 });
